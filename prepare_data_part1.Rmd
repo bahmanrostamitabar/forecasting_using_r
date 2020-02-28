@@ -1,0 +1,15 @@
+---
+title: "prepare_data_part1"
+author: "Bahman Rostami-Tabar"
+date: "28/02/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(tsibble)
+library(tsibbledata)
+```
+
+# Prepare data
