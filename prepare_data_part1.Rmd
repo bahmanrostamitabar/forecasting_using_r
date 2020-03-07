@@ -7,6 +7,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
+library(readr)
 ```
 
 # Prepare data
@@ -14,7 +15,6 @@ knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
 ## Import data
 
 ```{r import-data, echo=TRUE, eval=TRUE, cache=TRUE}
-library(readr)
 ae_original <- readr::read_csv("my_data/ae.csv",col_types = cols(  
  arrival_time=col_datetime(format = "%d/%m/%Y %H:%M"))) 
 ```
