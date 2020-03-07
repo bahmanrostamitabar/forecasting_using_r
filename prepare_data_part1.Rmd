@@ -6,10 +6,52 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-library(tsibble)
-library(tsibbledata)
+knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
 ```
 
 # Prepare data
+
+```{r import-data, echo=TRUE, eval=TRUE, cache=TRUE}
+library(readr)
+ae_original <- readr::read_csv("my_data/ae.csv",col_types = cols(  
+ arrival_time=col_datetime(format = "%d/%m/%Y %H:%M"))) 
+```
+
+## Explore raw data
+
+```{r explore-data, echo=TRUE, eval=FALSE}
+library(dplyr) # load package dplyr, here is for the function glimpse
+
+str(ae_original) # what is the structure of ae_original?What isinside?
+
+class(ae_original) # what kind of object is it? it is a tsibble
+
+head(ae_original,n=3) # show first n rows/observations
+
+tail(ae_original,n=5) # show last n rows/observations
+
+dim(ae_original) # dimensional of object
+
+length(ae_original) # returns the number of columns/variables
+
+nrow(ae_original) # number of rows
+
+ncol(ae_original) # number of columns
+
+names(ae_original) # shows the names attribute for a data frame, which gives the column names
+
+glimpse(ae_original)# structure of the object, similar to str but slightly different
+
+summary(ae_original)# summary of each column/variable of the data
+```
+
+## Check if your data is tidy
+
+```{r check_tidy}
+ae_original
+#is it a tibble?
+#Does each variable is in a column?
+# yes, so it is tidy data
+```
+
+
